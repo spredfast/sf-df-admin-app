@@ -79,21 +79,29 @@ angular.module('dfHome', ['ngRoute', 'dfUtility', 'dfApplication', 'dfHelp'])
 
     }])
 
-    .controller('HomeCtrl', ['$scope', '$sce', 'dfApplicationData', 'SystemConfigDataService',
-        function($scope, $sce, dfApplicationData, SystemConfigDataService){
+    .controller('HomeCtrl', ['$scope', '$sce', 'dfApplicationData', 'SystemConfigDataService', '$timeout',
+        function($scope, $sce, dfApplicationData, SystemConfigDataService, $timeout){
 
             $scope.trustUrl = function (url) {
                 return $sce.trustAsResourceUrl(url);
             }
 
             $scope.$parent.title = 'Home';
+            $scope.apps = dfApplicationData.getApiData('app');
+
+            $timeout(function () {
+                var iframeWindow = $('iframe')[0].contentWindow;
+                iframeWindow.onload = function () {
+                    iframeWindow.postMessage(JSON.stringify($scope.apps), window.location.origin);    
+                };
+            }, 0);
 
             // Set module links
             $scope.links = angular.copy(SystemConfigDataService.getSystemConfig().home_links) || [
                 {
                     name: 'welcome-home',
                     label: 'Welcome',
-                    href: "//www.dreamfactory.com/in_product_v2/welcome.html",
+                    href: "/welcome.html",
                     attributes: []
                 },
                 {
