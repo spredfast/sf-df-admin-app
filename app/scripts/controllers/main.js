@@ -77,11 +77,6 @@ angular.module('dreamfactoryApp')
         $scope.componentLinks = [
 
             {
-                name: 'home',
-                label: 'Home',
-                path: '/home'
-            },
-            {
                 name: 'apps',
                 label: 'Apps',
                 path: '/apps'
