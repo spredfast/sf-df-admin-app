@@ -30,7 +30,7 @@ angular.module('dreamfactoryApp')
                 show: false
             },
             {
-                path: '#/home',
+                path: '#/services',
                 label: 'Admin',
                 name: 'admin',
                 icon: dfIconService().admin,
