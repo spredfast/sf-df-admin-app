@@ -51,6 +51,7 @@ angular.module('dfUtility', ['dfApplication'])
 
                     switch(newValue) {
 
+                        case '/home':
                         case '/apps':
                         case '/admins':
                         case '/users':
@@ -355,6 +356,7 @@ angular.module('dfUtility', ['dfApplication'])
                             })
                             break;
 
+                        case '/home':
                         case '/apps':
                         case '/admins':
                         case '/users':
@@ -1111,7 +1113,8 @@ angular.module('dfUtility', ['dfApplication'])
                 filePath: '=?',
                 isUserCustom: '=?',
                 isClean: '=?',
-                isEditable: '=?'
+                isEditable: '=?',
+                hideGutter: '=?'
             },
             templateUrl: MOD_UTILITY_ASSET_PATH + 'views/df-ace-editor.html',
             link: function (scope, elem, attrs) {
@@ -1125,7 +1128,7 @@ angular.module('dfUtility', ['dfApplication'])
                 scope.editor = null;
                 scope.currentScriptObj = '';
                 scope.backupDoc = '';
-
+                scope.hideGutter = !!scope.hideGutter;
 
 
                 // PRIVATE API
@@ -1175,7 +1178,7 @@ angular.module('dfUtility', ['dfApplication'])
                             highlightGutterLine: false
                         })
                         scope.editor.renderer.$cursorLayer.element.style.opacity=0;
-                    }else {
+                    } else {
                         scope.editor.setOptions({
                             readOnly: false,
                             highlightActiveLine: true,
@@ -1192,6 +1195,7 @@ angular.module('dfUtility', ['dfApplication'])
 
 
                     scope.editor = ace.edit('ide_' + _rand);
+                    scope.editor.renderer.setShowGutter(scope.hideGutter);
 
                     //scope.editor.setTheme("ace/theme/twilight");
 
