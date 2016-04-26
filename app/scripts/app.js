@@ -71,7 +71,7 @@ angular
                                 if (currentUser.email === 'user@example.com' && !systemConfig.platform.bitnami_demo) {
                                     $location.url('/profile');
                                 } else {
-                                    $location.url('/home');
+                                    $location.url('/services');
                                 }
                             } else {
                                 $location.url('/launchpad');
@@ -108,7 +108,7 @@ angular
 
                         // we have a user and that user is an admin
                         if (currentUser && currentUser.is_sys_admin) {
-                            $location.url('/home');
+                            $location.url('/services');
                             return;
                         }
 
@@ -132,7 +132,7 @@ angular
                         }
 
                         if (currentUser && currentUser.is_sys_admin) {
-                            $location.url('/home');
+                            $location.url('/services');
                             return;
                         }
 
@@ -159,7 +159,7 @@ angular
                         }
 
                         if (currentUser && currentUser.is_sys_admin) {
-                            $location.url('/home');
+                            $location.url('/services');
                             return;
                         }
 
@@ -180,7 +180,7 @@ angular
                         var currentUser = dfApplicationData.getCurrentUser();
 
                         if (currentUser && currentUser.is_sys_admin) {
-                            $location.url('/home');
+                            $location.url('/services');
                             return;
                         }
 
@@ -203,7 +203,7 @@ angular
                         var currentUser = dfApplicationData.getCurrentUser();
 
                         if (currentUser && currentUser.is_sys_admin) {
-                            $location.url('/home');
+                            $location.url('/services');
                             return;
                         }
 
@@ -225,7 +225,7 @@ angular
 
                         if (currentUser && currentUser.session_id) {
                             if (currentUser.is_sys_admin) {
-                                $location.url('/home');
+                                $location.url('/services');
                             } else {
                                 $location.url('/launchpad');
                             }

@@ -417,12 +417,12 @@ angular.module('dreamfactoryApp')
                                 // if logging in using oauth then do a full reload
                                 // is needed to remove oauth related info from url.
                                 var uri = $location.absUrl().split('?');
-                                $window.location.href = uri[0]+'#/home';
+                                $window.location.href = uri[0]+'#/services';
                             } else {
                                 if ('user@example.com' === userDataObj.email && !SystemConfigDataService.getSystemConfig().platform.bitnami_demo) {
                                     $location.url('/profile');
                                 } else {
-                                    $location.url('/home');
+                                    $location.url('/services');
                                 }
                             }
                         }
@@ -679,7 +679,7 @@ angular.module('dreamfactoryApp')
                             if ('user@example.com' === userDataObj.email && !SystemConfigDataService.getSystemConfig().platform.bitnami_demo) {
                                 $location.url('/profile');
                             } else {
-                                $location.url('/home');
+                                $location.url('/services');
                             }
                         }
                     );
