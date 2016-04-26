@@ -51,7 +51,6 @@ angular.module('dfUtility', ['dfApplication'])
 
                     switch(newValue) {
 
-                        case '/home':
                         case '/apps':
                         case '/admins':
                         case '/users':
@@ -356,7 +355,6 @@ angular.module('dfUtility', ['dfApplication'])
                             })
                             break;
 
-                        case '/home':
                         case '/apps':
                         case '/admins':
                         case '/users':
