@@ -17,6 +17,7 @@ angular
         'ngSanitize',
         'ngTouch',
         'dfUtility',
+        'dfHome',
         'dfSystemConfig',
         'dfAdmins',
         'dfUsers',
@@ -71,7 +72,7 @@ angular
                                 if (currentUser.email === 'user@example.com' && !systemConfig.platform.bitnami_demo) {
                                     $location.url('/profile');
                                 } else {
-                                    $location.url('/services');
+                                    $location.url('/home');
                                 }
                             } else {
                                 $location.url('/launchpad');
@@ -108,7 +109,7 @@ angular
 
                         // we have a user and that user is an admin
                         if (currentUser && currentUser.is_sys_admin) {
-                            $location.url('/services');
+                            $location.url('/home');
                             return;
                         }
 
@@ -132,7 +133,7 @@ angular
                         }
 
                         if (currentUser && currentUser.is_sys_admin) {
-                            $location.url('/services');
+                            $location.url('/home');
                             return;
                         }
 
@@ -159,7 +160,7 @@ angular
                         }
 
                         if (currentUser && currentUser.is_sys_admin) {
-                            $location.url('/services');
+                            $location.url('/home');
                             return;
                         }
 
@@ -180,7 +181,7 @@ angular
                         var currentUser = dfApplicationData.getCurrentUser();
 
                         if (currentUser && currentUser.is_sys_admin) {
-                            $location.url('/services');
+                            $location.url('/home');
                             return;
                         }
 
@@ -203,7 +204,7 @@ angular
                         var currentUser = dfApplicationData.getCurrentUser();
 
                         if (currentUser && currentUser.is_sys_admin) {
-                            $location.url('/services');
+                            $location.url('/home');
                             return;
                         }
 
@@ -225,7 +226,7 @@ angular
 
                         if (currentUser && currentUser.session_id) {
                             if (currentUser.is_sys_admin) {
-                                $location.url('/services');
+                                $location.url('/home');
                             } else {
                                 $location.url('/launchpad');
                             }

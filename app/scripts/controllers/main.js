@@ -30,7 +30,7 @@ angular.module('dreamfactoryApp')
                 show: false
             },
             {
-                path: '#/services',
+                path: '#/home',
                 label: 'Admin',
                 name: 'admin',
                 icon: dfIconService().admin,
@@ -76,6 +76,11 @@ angular.module('dreamfactoryApp')
         // Right now they are all hard coded
         $scope.componentLinks = [
 
+            {
+                name: 'home',
+                label: 'Home',
+                path: '/home'
+            },
             {
                 name: 'apps',
                 label: 'Apps',
@@ -417,12 +422,12 @@ angular.module('dreamfactoryApp')
                                 // if logging in using oauth then do a full reload
                                 // is needed to remove oauth related info from url.
                                 var uri = $location.absUrl().split('?');
-                                $window.location.href = uri[0]+'#/services';
+                                $window.location.href = uri[0]+'#/home';
                             } else {
                                 if ('user@example.com' === userDataObj.email && !SystemConfigDataService.getSystemConfig().platform.bitnami_demo) {
                                     $location.url('/profile');
                                 } else {
-                                    $location.url('/services');
+                                    $location.url('/home');
                                 }
                             }
                         }
@@ -679,7 +684,7 @@ angular.module('dreamfactoryApp')
                             if ('user@example.com' === userDataObj.email && !SystemConfigDataService.getSystemConfig().platform.bitnami_demo) {
                                 $location.url('/profile');
                             } else {
-                                $location.url('/services');
+                                $location.url('/home');
                             }
                         }
                     );
